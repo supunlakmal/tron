@@ -12,19 +12,19 @@
   </a>
 </p>
 
-## Support
+### Support
 
 ### Nextron vs Next.js
 
-| nextron | next |
-| --- | --- |
-| `v8.x` | `v12.x` |
-| `v7.x` | `v11.x` |
-| `v6.x` | `v10.x` |
-| `v5.x` | `v9.x` |
-| `v4.x` | `v8.x` |
-| `v2.x` / `v3.x` | `v7.x` |
-| `v1.x` | `v6.x` |
+| nextron         | next    |
+| --------------- | ------- |
+| `v8.x`          | `v12.x` |
+| `v7.x`          | `v11.x` |
+| `v6.x`          | `v10.x` |
+| `v5.x`          | `v9.x`  |
+| `v4.x`          | `v8.x`  |
+| `v2.x` / `v3.x` | `v7.x`  |
+| `v1.x`          | `v6.x`  |
 
 ### Package Manager
 
@@ -124,9 +124,9 @@ For more information, please check out [electron-builder official configuration 
 ```js
 module.exports = {
   // specify an alternate main src directory, defaults to 'main'
-  mainSrcDir: 'main',
+  mainSrcDir: "main",
   // specify an alternate renderer src directory, defaults to 'renderer'
-  rendererSrcDir: 'renderer',
+  rendererSrcDir: "renderer",
 
   // main process' webpack config
   webpack: (config, env) => {
@@ -144,9 +144,7 @@ We can extends the default babel config of main process by putting `.babelrc` in
 
 ```json
 {
-  "presets": [
-    "nextron/babel"
-  ]
+  "presets": ["nextron/babel"]
 }
 ```
 
@@ -161,7 +159,7 @@ If we want to use some libraries that don't support SSR, we should check if the 
 ```jsx
 // pages/home.jsx
 
-import electron from 'electron';
+import electron from "electron";
 
 const Home = () => {
   // we can't use `electron.ipcRenderer` directly!
@@ -185,8 +183,8 @@ As mentioned above, we should check if the webpack process is a client because t
 ```jsx
 // pages/home.jsx
 
-import electron from 'electron';
-import React from 'react';
+import electron from "electron";
+import React from "react";
 
 const Home = () => {
   // In this scope, both of server and client processes are running
@@ -196,7 +194,7 @@ const Home = () => {
     // componentDidMount() like
 
     // In this scope, only the client process is running
-    window.alert('wow');
+    window.alert("wow");
 
     return () => {
       // componentWillUnmount() like
