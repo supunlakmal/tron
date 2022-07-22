@@ -1,474 +1,70 @@
-<p align="center"><img src="https://i.imgur.com/0vkxIMN.png"></p>
-<p align="center">
-  <a aria-label="NPM version" href="https://www.npmjs.com/package/nextron">
-    <img src="https://img.shields.io/npm/v/nextron.svg?style=for-the-badge&labelColor=000000" alt="NPM version">
-  </a>
-  <a aria-label="NPM downloads" href="https://www.npmjs.com/package/nextron">
-    <img src="https://img.shields.io/npm/dt/nextron.svg?style=for-the-badge&labelColor=000000" alt="NPM downloads">
-  </a>
-  <img src="https://img.shields.io/github/license/saltyshiomix/nextron.svg?style=for-the-badge&labelColor=000000" alt="Package License (MIT)">
-  <a aria-label="AWESOME NEXTJS" href="https://github.com/unicodeveloper/awesome-nextjs">
-    <img src="https://img.shields.io/badge/AWESOME%20%20NEXTJS-b37fb3.svg?style=for-the-badge" alt="AWESOME NEXTJS">
-  </a>
-</p>
-
-### Support
-
-### Nextron vs Next.js
-
-| nextron         | next    |
-| --------------- | ------- |
-| `v8.x`          | `v12.x` |
-| `v7.x`          | `v11.x` |
-| `v6.x`          | `v10.x` |
-| `v5.x`          | `v9.x`  |
-| `v4.x`          | `v8.x`  |
-| `v2.x` / `v3.x` | `v7.x`  |
-| `v1.x`          | `v6.x`  |
-
-### Package Manager
-
-`npm`, `yarn` and `pnpm >= v4` are supported.
-
-## My Belief for Nextron
-
-1. Show a way of developing desktop apps only web knowledge
-1. Easy to use
-1. Be transparent and open to OSS developers
-
-## Usage
-
-### Create Application with Template
-
-We can use `examples/*` as a template.
-
-To create the `examples/with-typescript-material-ui`, run the command below:
-
-```
-# with npx
-$ npx create-nextron-app MY_APP --example with-typescript-material-ui
-
-# with yarn
-$ yarn create nextron-app MY_APP --example with-typescript-material-ui
-
-# with pnpx
-$ pnpx create-nextron-app MY_APP --example with-typescript-material-ui
-```
+# Getting Started with Create React App
 
-### Run Electron with Development Mode
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Run `npm run dev`, and nextron automatically launches an electron app.
+## Available Scripts
 
-```json
-{
-  "scripts": {
-    "dev": "nextron"
-  }
-}
-```
+In the project directory, you can run:
 
-### Production Build
+### `npm start`
 
-Run `npm run build`, and nextron outputs packaged bundles under the `dist` folder.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-```json
-{
-  "scripts": {
-    "build": "nextron build"
-  }
-}
-```
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### Build Options
+### `npm test`
 
-To build Windows 32 bit version, run `npm run build:win32` like below:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```json
-{
-  "scripts": {
-    "build": "nextron build",
-    "build:all": "nextron build --all",
-    "build:win32": "nextron build --win --ia32",
-    "build:win64": "nextron build --win --x64",
-    "build:mac": "nextron build --mac --x64",
-    "build:linux": "nextron build --linux"
-  }
-}
-```
+### `npm run build`
 
-**CAUTION**: To build macOS binary, your host machine must be macOS!
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Build Configuration
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-Edit `electron-builder.yml` properties for custom build configuration.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```yml
-appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2020 Yoshihide Shiono
-directories:
-  output: dist
-  buildResources: resources
-files:
-  - from: .
-    filter:
-      - package.json
-      - app
-publish: null # see https://www.electron.build/configuration/publish
-```
+### `npm run eject`
 
-For more information, please check out [electron-builder official configuration documents](https://www.electron.build/configuration/configuration).
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## nextron.config.js
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-```js
-module.exports = {
-  // specify an alternate main src directory, defaults to 'main'
-  mainSrcDir: "main",
-  // specify an alternate renderer src directory, defaults to 'renderer'
-  rendererSrcDir: "renderer",
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-  // main process' webpack config
-  webpack: (config, env) => {
-    // do some stuff here
-    return config;
-  },
-};
-```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Custom Babel Config for the Main Process
+## Learn More
 
-We can extends the default babel config of main process by putting `.babelrc` in our project root like this:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-**`.babelrc`**:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-```json
-{
-  "presets": ["nextron/babel"]
-}
-```
+### Code Splitting
 
-## Tips
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Next.js' Webpack Processes
+### Analyzing the Bundle Size
 
-There are two webpack processes: server process and client one.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-If we want to use some libraries that don't support SSR, we should check if the current process is whether server or client:
+### Making a Progressive Web App
 
-```jsx
-// pages/home.jsx
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-import electron from "electron";
+### Advanced Configuration
 
-const Home = () => {
-  // we can't use `electron.ipcRenderer` directly!
-  const ipcRenderer = electron.ipcRenderer;
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-  // we should check it like this
-  const ipcRenderer = electron.ipcRenderer || false;
-  if (ipcRenderer) {
-    // we can use `electron.ipcRenderer`
-    // because this scope is the client webpack process
-  }
-};
+### Deployment
 
-export default Home;
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### The Basic of React Hooks :)
+### `npm run build` fails to minify
 
-As mentioned above, we should check if the webpack process is a client because the renderer process is a web client:
-
-```jsx
-// pages/home.jsx
-
-import electron from "electron";
-import React from "react";
-
-const Home = () => {
-  // In this scope, both of server and client processes are running
-  // So if the process is server, `window` object is undefined
-
-  React.useEffect(() => {
-    // componentDidMount() like
-
-    // In this scope, only the client process is running
-    window.alert("wow");
-
-    return () => {
-      // componentWillUnmount() like
-    };
-  }, []);
-
-  return <p>Hello Nextron</p>;
-};
-
-export default Home;
-```
-
-## Examples
-
-See [examples](./examples) folder for more information.
-
-### [examples/custom-build-options](./examples/custom-build-options)
-
-<p align="center"><img src="https://i.imgur.com/QqQekRJ.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example custom-build-options
-
-# with yarn
-$ yarn create nextron-app my-app --example custom-build-options
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example custom-build-options
-```
-
-### [examples/custom-main-entry](./examples/custom-main-entry)
-
-<p align="center"><img src="https://i.imgur.com/nqpLJI0.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example custom-main-entry
-
-# with yarn
-$ yarn create nextron-app my-app --example custom-main-entry
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example custom-main-entry
-```
-
-### [examples/custom-renderer-port](./examples/custom-renderer-port)
-
-<p align="center"><img src="https://i.imgur.com/X7dSE68.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example custom-renderer-port
-
-# with yarn
-$ yarn create nextron-app my-app --example custom-renderer-port
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example custom-renderer-port
-```
-
-### [examples/ipc-communication](./examples/ipc-communication)
-
-<p align="center"><img src="https://i.imgur.com/kIDlAFT.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example ipc-communication
-
-# with yarn
-$ yarn create nextron-app my-app --example ipc-communication
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example ipc-communication
-```
-
-### [examples/store-data](./examples/store-data)
-
-<p align="center"><img src="https://i.imgur.com/BgFze6G.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example store-data
-
-# with yarn
-$ yarn create nextron-app my-app --example store-data
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example store-data
-```
-
-### [examples/with-javascript](./examples/with-javascript)
-
-<p align="center"><img src="https://i.imgur.com/X7dSE68.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-javascript
-
-# with yarn
-$ yarn create nextron-app my-app --example with-javascript
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-javascript
-```
-
-### [examples/with-javascript-ant-design](./examples/with-javascript-ant-design)
-
-<p align="center"><img src="https://i.imgur.com/NrkTPe9.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-javascript-ant-design
-
-# with yarn
-$ yarn create nextron-app my-app --example with-javascript-ant-design
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-javascript-ant-design
-```
-
-### [examples/with-javascript-emotion](./examples/with-javascript-emotion)
-
-<p align="center"><img src="https://i.imgur.com/FDRVPr8.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-javascript-emotion
-
-# with yarn
-$ yarn create nextron-app my-app --example with-javascript-emotion
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-javascript-emotion
-```
-
-### [examples/with-javascript-material-ui](./examples/with-javascript-material-ui)
-
-<p align="center"><img src="https://i.imgur.com/0vkxIMN.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-javascript-material-ui
-
-# with yarn
-$ yarn create nextron-app my-app --example with-javascript-material-ui
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-javascript-material-ui
-```
-
-### [examples/with-javascript-tailwindcss](./examples/with-javascript-tailwindcss)
-
-<p align="center"><img src="https://i.imgur.com/P08L8HO.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-javascript-tailwindcss
-
-# with yarn
-$ yarn create nextron-app my-app --example with-javascript-tailwindcss
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-javascript-tailwindcss
-```
-
-### [examples/with-typescript](./examples/with-typescript)
-
-<p align="center"><img src="https://i.imgur.com/NZfsD1p.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript
-```
-
-### [examples/with-typescript-ant-design](./examples/with-typescript-ant-design)
-
-<p align="center"><img src="https://i.imgur.com/NrkTPe9.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript-ant-design
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript-ant-design
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript-ant-design
-```
-
-### [examples/with-typescript-emotion](./examples/with-typescript-emotion)
-
-<p align="center"><img src="https://i.imgur.com/3UKgyH7.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript-emotion
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript-emotion
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript-emotion
-```
-
-### [examples/with-typescript-material-ui](./examples/with-typescript-material-ui)
-
-<p align="center"><img src="https://i.imgur.com/flcMvDC.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript-material-ui
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript-material-ui
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript-material-ui
-```
-
-### [examples/with-typescript-tailwindcss](./examples/with-typescript-tailwindcss)
-
-<p align="center"><img src="https://i.imgur.com/a9QWW0v.png"></p>
-
-```
-# with npx
-$ npx create-nextron-app my-app --example with-typescript-tailwindcss
-
-# with yarn
-$ yarn create nextron-app my-app --example with-typescript-tailwindcss
-
-# with pnpx
-$ pnpx create-nextron-app my-app --example with-typescript-tailwindcss
-```
-
-## Develop
-
-### Basic
-
-```
-$ git clone https://github.com/saltyshiomix/nextron.git
-$ cd nextron
-$ yarn
-$ yarn dev # default is examples/with-javascript
-```
-
-`pnpm` or `npm` are also supported.
-
-### Developing `examples/*`
-
-```
-$ yarn dev <EXAMPLE-FOLDER-NAME>
-```
-
-## Maintainers ⚡
-
-- [saltyshiomix (Shiono Yoshihide)](https://github.com/saltyshiomix)
-- [lacymorrow (Lacy Morrow)](https://github.com/lacymorrow)
-- [Psycokwet](https://github.com/Psycokwet)
-- [m5x5](https://github.com/m5x5)
-
-For more information, please see [Looking for maintainers ⚡ #244](https://github.com/saltyshiomix/nextron/discussions/244).
-
-## Related
-
-- [create-nextron-app](https://github.com/saltyshiomix/create-nextron-app) - Create Nextron (Electron + Next.js) apps in one command ⚡
-- [Nuxtron](https://github.com/saltyshiomix/nuxtron) - ⚡ Electron + Nuxt.js ⚡
-
-## License
-
-This project is licensed under the terms of the [MIT license](https://github.com/saltyshiomix/nextron/blob/master/LICENSE).
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
